@@ -1,0 +1,65 @@
+package recursion;
+
+public class hollowdiamond {
+
+	public static void star(int x,int i)
+	{
+		if(i==x)
+			return;
+		for(int j=0;j<x;j++)
+		{
+			if(j<x-i)
+			System.out.print("* ");
+			else
+			System.out.print("  ");
+		}
+		star1(x,i);
+		System.out.println();
+		star(x,i+1);
+		}
+	
+	public static void star1(int x,int i)
+	{
+		for(int j=0;j<x;j++)
+		{
+			if(j<i)
+			System.out.print("  ");
+			else
+			System.out.print("* ");
+		}
+	}
+	
+	public static void stardown(int x,int i)
+	{
+		if(i==x)
+			return;
+		for(int j=0;j<x;j++)
+		{
+			if(j<=i)
+			System.out.print("* ");
+			else
+			System.out.print("  ");
+		}
+		stardown1(x,i);
+		System.out.println();
+		stardown(x,i+1);
+		}
+	
+	public static void stardown1(int x,int i)
+	{
+		for(int j=0;j<x;j++)
+		{
+			if(j<x-i-1)
+			System.out.print("  ");
+			else
+			System.out.print("* ");
+		}
+	}
+	
+	public static void main(String args[])
+	{
+		hollowdiamond ob=new hollowdiamond();
+		ob.star(5,0);
+		ob.stardown(5,0);
+	}
+}
