@@ -1,0 +1,30 @@
+package recursion;
+
+public class rightpascal {
+            public static void star(int x,int i)
+            {
+            	if(i==x)
+            		return;
+            	
+            	for(int j=0;j<=i;j++) {
+            		System.out.print("* ");
+            	}
+            	System.out.println();
+            	star(x,i+1);
+            }
+            public static void star1(int x)
+            {
+            	if(x==0)
+            		return;
+            	for(int j=x-1;j>0;j--) {
+            		System.out.print("* ");
+            	}
+            	System.out.println();
+            	star1(x-1);
+            }
+            public static void main(String[] args)
+          	{
+            	star(5,0);
+            	star1(5);
+          	}
+}
