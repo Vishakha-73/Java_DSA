@@ -1,0 +1,38 @@
+package recursion;
+
+import java.util.ArrayList;
+
+public class DiceGameProblem {
+         
+	public static ArrayList dice(int currentvalue,int endvalue)
+	{
+		if(currentvalue==endvalue) {
+			ArrayList list=new ArrayList<>();
+			list.add("");
+			return list;
+	    }
+		
+		if(currentvalue>endvalue) {
+			ArrayList list=new ArrayList<>();
+			return list;
+		}
+		
+		ArrayList<String> finalist=new ArrayList<String>();
+		for(int dice=1;dice<=6;dice++)
+		{
+			int newvalue=currentvalue+dice;
+			ArrayList<String> res=dice(newvalue,endvalue);
+			for(String s:res)
+			{
+				finalist.add(dice+s);
+			}
+		}
+		return finalist;
+}
+	
+	public static void main(String args[])
+	{
+	   ArrayList<String> ans=dice(0,10);
+	   System.out.print(ans);
+	}
+}
