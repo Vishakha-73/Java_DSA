@@ -1,0 +1,29 @@
+package recursion;
+
+import java.util.ArrayList;
+
+public class productofelemnts {
+         
+	public static int product(ArrayList<Integer> list,int i,int val)
+	{
+		if(i==list.size()) 
+		return val;
+	
+		val=val*list.get(i);
+		return product(list,i+1,val);
+	}
+	
+	public static void main(String args[])
+	{
+		ArrayList<Integer> a=new ArrayList<>();
+		a.add(1);
+		a.add(3);
+		a.add(9);
+		a.add(2);
+		a.add(10);
+		int num=product(a,0,1);
+		ArrayList<Integer> result=new ArrayList<>();
+		result.add(num);
+		System.out.println(result);
+	}
+}
