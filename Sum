@@ -1,0 +1,22 @@
+package Strings;
+
+import java.util.Arrays;
+
+public class SumOfUpperAndLowerBoundaryOfMatrix {
+	public static void main(String args[]) {
+		int matrix[][]= {{6,5,4},{1,2,5},{7,9,7}};
+		int lowerSum=0;
+		int upperSum=0;
+		
+		for(int i=0;i<matrix.length;i++) {
+			for(int j=0;j<matrix[i].length;j++) {
+				if(i<=j)
+					upperSum+=matrix[i][j];
+				if(i>=j)
+					lowerSum+=matrix[i][j];
+			}
+		}
+		System.out.println("Sum Of Lower Boundary Is: "+lowerSum);
+		System.out.println("Sum Of Upper Boundary Is: "+upperSum);
+	}
+}
