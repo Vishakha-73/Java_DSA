@@ -1,0 +1,30 @@
+package recursion;
+import java.util.Scanner;
+
+public class palindromestring {
+
+	 public static void palindrome(String str)
+	 {
+		 int j=str.length()-1;
+		 if(j==0) {
+			 System.out.println("It is a palindrome string");
+			 System.exit(0);
+			 }
+		 
+		 if(str.charAt(0)==str.charAt(j))
+		 palindrome(str.substring(1, j));
+		 
+		 else 
+			 System.out.println("It is not a palindrome string");
+		 
+	 }
+	 
+
+		public static void main(String[] args)
+		{
+			Scanner sc=new Scanner(System.in);
+			String s=sc.next();
+			palindrome(s.toLowerCase());
+			
+		}
+}
