@@ -1,0 +1,28 @@
+package recursion;
+
+public class mazeusingvoid {
+	
+	static void maze(int currentrow,int currentcolumn,int endrow,int endcolumn,String result)
+	{
+		if(currentrow==endrow && currentcolumn==endcolumn) {
+			System.out.println(result);
+		}
+		
+		if(currentrow>endrow || currentcolumn>endcolumn) 
+			return;
+			
+		maze(currentrow,currentcolumn+1,endrow,endcolumn,result+"R");
+		maze(currentrow+1,currentcolumn,endrow,endcolumn,result+"D");
+		maze(currentrow+1,currentcolumn+1,endrow,endcolumn,result+"I");
+		}
+	
+	public static void main(String args[])
+	{
+    Scanner sc=new Scanner(System.in);
+    System.out.println("Enter row");
+    int r=sc.nextInt();
+    System.out.println("Enter column");
+    int c=sc.nextInt();
+	   maze(0,0,r,c,"");
+    }
+}
