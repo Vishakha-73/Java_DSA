@@ -1,0 +1,19 @@
+package recursion;
+
+public class CheckArrayIsSorted {
+        
+	public static void main(String args[]) {
+		  int arr[]= {5,10,20,30,40,50};
+		  boolean b=true;
+		  for(int i=1;i<arr.length-1;i++) {
+			if(!(arr[i]>arr[i+1] && arr[i]<arr[i-1] ||arr[i]<arr[i+1] && arr[i]>arr[i-1])) {
+			  b=false;
+			  break;
+		  }
+		  }
+		  if(b==false)
+			  System.out.println("Array Not Sorted");
+		  else
+			  System.out.println("Array Sorted");
+	}
+}
