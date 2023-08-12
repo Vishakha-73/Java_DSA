@@ -1,0 +1,23 @@
+package recursion;
+
+import java.util.Arrays;
+
+public class changecase {
+
+	public static String[] uppercase(String a[],int i)
+	{
+		if(i==a.length)
+			return a;
+		
+		a[i]=a[i].toUpperCase();
+		return uppercase(a,i+1);
+		
+	}
+
+	public static void main(String args[])
+	{
+		String s[]= {"foo","Nice","JAVA","ProGraM","bar","world"};
+		String str[]=uppercase(s,0);
+		System.out.println(Arrays.toString(str));
+	}
+}
