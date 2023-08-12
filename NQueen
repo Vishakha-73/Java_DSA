@@ -1,0 +1,56 @@
+package recursion;
+
+public class NQueen {
+	
+	static boolean isQueenPlaceOnSafeArea(boolean board[][],int row,int column)
+	{
+		for(int i=row;i>=0;i--){
+			if(board[i][column]) 
+				return false;
+			}
+		
+		for(int i=row,j=column;i>=0&&j>=0;i--,j--){
+			if(board[i][j]) 
+				return false;
+			}
+		
+		for(int i=row,j=column;i>=0&&j<board[row].length;i--,j++){
+			if(board[i][j]) 
+				return false;
+		}
+		
+		return true;
+	}
+	
+	static int countNumberOfWays(boolean board[][],int currentrow)
+	{
+		int count=0;
+		if(currentrow==board.length) 
+			return 1;
+		
+		//for each row traverse all columns
+		for(int column=0;column<board[currentrow].length;column++)
+		{
+			//place queen on column but before check if where we are placing it is a safe place or not
+			if(isQueenPlaceOnSafeArea(board,currentrow,column)) {
+				board[currentrow][column]=true;//place the queen on board
+				//after placing move to next row
+				int result=countNumberOfWays(board,currentrow+1);
+				count = count+result;
+				//StackFall(Backtracking)
+				board[currentrow][column]=false;//undo the option
+			}
+		}
+		return count;
+	}
+     
+	public static void main(String args[])
+	{
+		int N=4;
+		boolean chessboard[][]=new boolean[N][N];
+		
+		int count;
+		count=countNumberOfWays(chessboard,0);
+		System.out.println(count);
+	}
+}
