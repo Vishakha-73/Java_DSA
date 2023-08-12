@@ -1,0 +1,45 @@
+package recursion;
+
+public class diamond {
+      
+	public static void stardown(int x,int i)
+	{
+		if(i==0)
+			return;
+		for(int j=0;j<x;j++)
+		{  
+			if((i+j)<=x-1)
+				System.out.print(" ");
+			else
+		System.out.print("* ");
+		}
+		System.out.println();
+		
+		}
+
+	public static void space(int x,int i)
+	{
+		if(i==x)
+			return;
+		
+		for(int j=0;j<x;j++)
+		{
+			if((i+j)>=x-1)
+			System.out.print("* ");
+			else
+				System.out.print(" ");
+		}
+		System.out.println();
+		
+		space(x,++i);
+		stardown(x,--i);
+		
+	}
+
+	public static void main(String[] args)
+	{
+	   space(7,0);
+	
+    }
+}
+
