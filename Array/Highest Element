@@ -1,0 +1,24 @@
+package recursion;
+
+public class highestelement {
+
+	public static int highest(int a[],int i,int p)
+	{
+		if(i==a.length-1)
+		return p;	
+			
+		if(a[i+1]>a[p])
+			p=i+1;
+		//if(a[i+1]==a[p]) if any elemnt occurs more than once, this gives the
+			//p=i+1;
+		int index=highest(a,i+1,p);
+		return index;
+		
+	}
+	public static void main(String args[])
+	{
+		int arr[]= {3,6,1,13,15,1};
+		int pos=highest(arr,0,0);
+		System.out.println("Highest Element is: "+arr[pos]+" found at "+(pos+1)+" position");
+	}
+}
