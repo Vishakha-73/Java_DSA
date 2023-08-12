@@ -1,0 +1,23 @@
+package recursion;
+
+public class arraysearch {
+           
+	public static int search(int a[],int index,int value)
+	{
+		if(index==a.length)
+			return -1;
+			if(value==a[index])
+				return index;
+			
+			return search(a,index+1,value);
+			 
+	}
+	
+	public static void main(String[] args)
+    {
+		int arr[]= {50,40,30,20,100};
+		int t=search(arr,0,20);
+		
+        	System.out.println(t>=0?"Element found at "+(t+1)+" position":"Element Not Found");
+    }
+}
