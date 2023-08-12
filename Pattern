@@ -1,0 +1,26 @@
+package recursion;
+
+public class charpattern {
+          
+	public static void star(int x,int i,int p)
+	{
+		if(i==x)
+			return;
+		
+		for(int j=0;j<=i;j++)
+		{ 
+			if(p<9)
+			System.out.print(++p+"  ");
+			else
+			System.out.print(++p+" ");
+		}
+		System.out.println();
+		star(x,i+1,p);
+	}
+	
+	public static void main(String args[])
+	{
+		charpattern ob=new charpattern();
+		ob.star(5,0,0);
+	}
+}
