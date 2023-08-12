@@ -1,0 +1,26 @@
+package recursion;
+
+public class ReverseusingStringBuilder {
+              
+	public static void reverse(StringBuilder sb,int i,int l) 
+	{
+		if(i==sb.length()/2)
+			System.out.println(sb);
+		
+            char e=sb.charAt(l-1-i);
+		sb.setCharAt(l-1-i,sb.charAt(i));
+		sb.setCharAt(i,e);
+		
+		reverse(sb,i+1,l);
+			
+	}
+	
+	public static void main(String[] args)
+	{
+		StringBuilder sb=new StringBuilder("Hello this is Java Program");
+		int l=sb.length();
+		
+		reverse(sb,0,l);
+		
+	}
+}
