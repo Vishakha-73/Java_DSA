@@ -1,0 +1,46 @@
+package recursion;
+
+public class leftpascal {
+	public static void star(int i)
+	{
+		for(int j=0;j<=i;j++)
+		{
+			System.out.print("* ");
+		}
+	}
+	public static void space(int x,int i)
+    {
+    	if(i==x)
+    		return;
+    	
+    	for(int j=i;j<x-1;j++) {
+    		System.out.print("  ");
+    	}
+    	star(i);
+    	System.out.println();
+    	space(x,i+1);
+    }
+    public static void star1(int x,int i)
+    {
+    	for(int j=i;j<x-1;j++) {
+    		System.out.print("* ");
+    	}
+    }
+    public static void space1(int x,int i)
+    {
+    	if(i==x)
+    		return;
+    	
+    	for(int j=0;j<=i;j++) {
+    		System.out.print("  ");
+    	}
+    	star1(x,i);
+    	System.out.println();
+    	space1(x,i+1);
+    }
+    public static void main(String[] args)
+  	{
+    	space(5,0);
+    	space1(5,0);
+  	}
+}
