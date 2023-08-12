@@ -1,0 +1,22 @@
+package recursion;
+
+public class SecondLargestElement {
+        public static void main(String args[]) {
+        	int arr[]= {10,55,74,39,14,7,88,17,3,21};
+        	int MAX;
+        	int Second_MAX=-1;
+        	if(arr.length!=0) {
+        	MAX=arr[0];
+        	for(int i=1;i<arr.length;i++) {
+        		if(arr[i]>MAX) {
+        			Second_MAX=MAX;
+        			MAX=arr[i];
+        		}
+        	}
+          }
+        	else
+        		MAX=-1;
+        	System.out.println("Second Largest Element is: "+Second_MAX);
+        	System.out.println("Largest Element is: "+MAX);
+        }
+}
