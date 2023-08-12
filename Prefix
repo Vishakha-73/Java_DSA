@@ -1,0 +1,57 @@
+package Stack;
+
+import java.util.Stack;
+
+public class PrefixExpression {
+        static int resultPrefix(String s) {
+        	Stack<Integer> stack=new Stack<>();
+        	int n=s.length();
+        	int ans=0;
+        	
+        	for(int i=n-1;i>=0;i--) {
+        		char ch=s.charAt(i);
+        		
+        		if(ch==' ')
+        			continue;
+        		
+        		if(Character.isDigit(ch)) {
+        			stack.push(Character.getNumericValue(ch));
+        		}
+        		else {
+        			int n1=stack.pop();
+        			int n2=stack.pop();
+        			
+        			switch(ch) {
+        			case '+':
+        			 ans=n1+n2;
+        			 break;
+        			 
+        			case '-':
+           			 ans=n1-n2;
+           			 break;
+           			 
+        			case '*':
+           			 ans=n1*n2;
+           			 break;
+           			 
+        			case '/':
+           			 ans=n1/n2;
+           			 break;
+           			 
+        			case '%':
+              		 ans=n1%n2;
+              		 break;
+              			 
+        			}
+        		stack.push(ans);
+        		}
+        	}
+        	return stack.pop();
+        }
+        
+    public static void main(String args[]) {
+    	String s="*-544";
+    	int result=resultPrefix(s);
+    	System.out.println(result);
+    }
+  }
