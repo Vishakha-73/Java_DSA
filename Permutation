@@ -1,0 +1,38 @@
+package recursion;
+import java.util.ArrayList;
+
+public class permutation {
+         
+	static ArrayList<String> perm(String str)
+	{
+		//Termination case
+		if(str.length()==0) {
+			ArrayList<String> l=new ArrayList<>();
+			l.add("");
+			return l;
+		}
+			
+			//get first char		
+		char firstChar=str.charAt(0);
+		ArrayList<String> finalList=new ArrayList<>();//to store all combinations of abc
+		
+		ArrayList<String> l=perm(str.substring(1));
+		
+		//Traverse the result
+		for(String t:l) {
+			for(int i=0;i<=t.length();i++) {
+				StringBuilder sb=new StringBuilder(t);
+				sb.insert(i,firstChar);
+				finalList.add(sb.toString());
+			}
+		}
+		return finalList;
+	}
+	
+	public static void main(String[] args)
+	{
+		ArrayList<String> ans=perm("abc");
+		System.out.println(ans);
+		
+}
+}
