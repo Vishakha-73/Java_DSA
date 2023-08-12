@@ -1,0 +1,43 @@
+package recursion;
+
+import java.util.Scanner;
+
+public class NearestElement {
+	public static void main(String args[]) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter search element: ");
+		int value=sc.nextInt();
+		int a[]= {10,20,40,70,80,90,100};
+		int low=0;
+		int high=a.length-1;
+		int mid=0,res=0;
+		if(value<a[low])
+			System.out.println("Nearest Element : "+a[low]);
+		else if(value>a[high])
+			System.out.println("Nearest Element : "+a[high]);
+		else {
+		while(low<high) {
+			mid=(high-low)/2+low;
+			if(value==a[mid]) {
+				System.out.println("Element Found at index: "+(mid+1));
+	            return;
+			}
+			if(value<a[mid+1] && value>a[mid]) {
+				res=(a[mid+1]-value>value-a[mid]?a[mid]:a[mid+1]);
+				System.out.println("Nearest Element : "+res);
+				return;
+			}
+			if(value>a[mid-1] && value<a[mid]) {
+				res=(a[mid]-value<value-a[mid-1]?a[mid]:a[mid-1]);
+				System.out.println("Nearest Element : "+res);
+				return;
+			}
+			else if(value>a[mid])
+				low=mid+1;
+			else if(value<a[mid])
+				high=mid-1;
+			
+		     }//while
+		  }//else
+	}
+}
